@@ -73,6 +73,7 @@ section {
 
 /* ---------- Video ---------- */
 .video-wrapper {
+  position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   border-radius: 14px;
@@ -86,43 +87,31 @@ video {
   object-fit: cover;
 }
 
-/* ---------- Scroll Indicator ---------- */
-.scroll-indicator {
-  margin: 20px auto 0;
-  text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-}
-
-.scroll-indicator span {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.scroll-indicator .lines {
+/* ---------- Video Edge Scroll Cue ---------- */
+.video-scroll-cue {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14px;
 }
 
-.scroll-indicator .lines i {
-  display: block;
+.video-scroll-cue span {
   width: 2px;
-  height: 18px;
-  background: rgba(255,255,255,0.6);
-  animation: scrollMove 1.8s ease-in-out infinite;
+  height: 24px;
+  background: rgba(255,255,255,0.7);
+  animation: cueMove 1.8s ease-in-out infinite;
 }
 
-.scroll-indicator .lines i:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-@keyframes scrollMove {
+@keyframes cueMove {
   0% {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
   }
   50% {
     opacity: 1;
@@ -130,7 +119,7 @@ video {
   }
   100% {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
   }
 }
 
@@ -203,14 +192,10 @@ video {
       <video id="film" playsinline loop>
         <source src="media/prewedding.mp4" type="video/mp4">
       </video>
-    </div>
 
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator">
-      <span>SCROLL</span>
-      <div class="lines">
-        <i></i>
-        <i></i>
+      <!-- Subtle scroll cue inside video -->
+      <div class="video-scroll-cue">
+        <span></span>
       </div>
     </div>
   </div>
@@ -258,17 +243,17 @@ video {
 <script>
 const overlay = document.getElementById("overlay");
 const video = document.getElementById("film");
-const scrollIndicator = document.querySelector(".scroll-indicator");
+const videoScrollCue = document.querySelector(".video-scroll-cue");
 
 overlay.addEventListener("click", () => {
   overlay.classList.add("hide");
   video.play();
 });
 
-// Hide scroll indicator once user scrolls
+// Hide scroll cue once user scrolls
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 50 && scrollIndicator) {
-    scrollIndicator.style.display = "none";
+  if (window.scrollY > 40 && videoScrollCue) {
+    videoScrollCue.style.display = "none";
   }
 });
 </script>
