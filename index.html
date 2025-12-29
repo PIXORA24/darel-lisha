@@ -88,7 +88,7 @@ video {
 
 /* ---------- Quote ---------- */
 .quote-section {
-  margin-top: -12px; /* subtle pull to suggest more content */
+  margin-top: -12px;
 }
 
 .quote {
@@ -208,7 +208,24 @@ const video = document.getElementById("film");
 
 overlay.addEventListener("click", () => {
   overlay.classList.add("hide");
+
+  video.volume = 0;
   video.play();
+
+  let volume = 0;
+  const fadeDuration = 800; // ms
+  const stepTime = 40;
+  const step = stepTime / fadeDuration;
+
+  const fadeIn = setInterval(() => {
+    volume += step;
+    if (volume >= 1) {
+      video.volume = 1;
+      clearInterval(fadeIn);
+    } else {
+      video.volume = volume;
+    }
+  }, stepTime);
 });
 </script>
 
