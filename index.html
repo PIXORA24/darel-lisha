@@ -61,7 +61,7 @@ body {
 
 /* ---------- Sections ---------- */
 section {
-  padding: 60px 16px;
+  padding: 40px 16px; /* reduced from 60 */
   display: flex;
   justify-content: center;
 }
@@ -92,13 +92,14 @@ video {
   text-align: center;
   font-size: 1.1rem;
   color: var(--muted);
+  margin-bottom: 20px; /* tighter transition to photos */
 }
 
 /* ---------- Photos ---------- */
 .photo {
   width: 100%;
   aspect-ratio: 9 / 16;
-  margin-bottom: 48px;
+  margin-bottom: 40px; /* slightly reduced */
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 16px 50px rgba(0,0,0,0.5);
@@ -114,7 +115,7 @@ video {
 .word {
   text-align: center;
   font-size: 1.2rem;
-  margin: 32px 0;
+  margin: 24px 0 48px; /* intentional breathing space */
   letter-spacing: 1px;
   color: var(--accent);
 }
@@ -151,7 +152,7 @@ video {
 <section>
   <div class="container">
     <div class="video-wrapper">
-      <video id="film" playsinline>
+      <video id="film" playsinline muted>
         <source src="media/prewedding.mp4" type="video/mp4">
       </video>
     </div>
@@ -172,17 +173,16 @@ video {
   <div class="container">
 
     <div class="photo"><img src="media/photo1.jpg" alt=""></div>
-    <div class="word">Us.</div>
-
     <div class="photo"><img src="media/photo2.jpg" alt=""></div>
-    <div class="word">Laughter.</div>
+    <div class="word">Us.</div>
 
     <div class="photo"><img src="media/photo3.jpg" alt=""></div>
     <div class="photo"><img src="media/photo4.jpg" alt=""></div>
-    <div class="word">Always.</div>
+    <div class="word">Laughter.</div>
 
     <div class="photo"><img src="media/photo5.jpg" alt=""></div>
     <div class="photo"><img src="media/photo6.jpg" alt=""></div>
+    <div class="word">Always.</div>
 
   </div>
 </section>
