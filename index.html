@@ -26,6 +26,23 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- Viewport Continuation Cue ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0)
+  );
+  z-index: 1;
+}
+
 /* ---------- Tap Overlay ---------- */
 #overlay {
   position: fixed;
@@ -202,32 +219,4 @@ video {
   </div>
 </section>
 
-<script>
-const overlay = document.getElementById("overlay");
-const video = document.getElementById("film");
-
-overlay.addEventListener("click", () => {
-  overlay.classList.add("hide");
-
-  video.volume = 0;
-  video.play();
-
-  let volume = 0;
-  const fadeDuration = 800; // ms
-  const stepTime = 40;
-  const step = stepTime / fadeDuration;
-
-  const fadeIn = setInterval(() => {
-    volume += step;
-    if (volume >= 1) {
-      video.volume = 1;
-      clearInterval(fadeIn);
-    } else {
-      video.volume = volume;
-    }
-  }, stepTime);
-});
-</script>
-
-</body>
-</html>
+<scr
