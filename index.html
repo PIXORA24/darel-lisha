@@ -61,7 +61,7 @@ body {
 
 /* ---------- Sections ---------- */
 section {
-  padding: 60px 16px;
+  padding: 32px 16px;
   display: flex;
   justify-content: center;
 }
@@ -73,7 +73,6 @@ section {
 
 /* ---------- Video ---------- */
 .video-wrapper {
-  position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   border-radius: 14px;
@@ -92,13 +91,14 @@ video {
   text-align: center;
   font-size: 1.1rem;
   color: var(--muted);
+  margin: 8px 0 24px;
 }
 
 /* ---------- Photos ---------- */
 .photo {
   width: 100%;
   aspect-ratio: 9 / 16;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 16px 50px rgba(0,0,0,0.5);
@@ -114,9 +114,10 @@ video {
 .word {
   text-align: center;
   font-size: 1.2rem;
-  margin: 32px 0;
+  margin: 24px 0 32px;
   letter-spacing: 1px;
   color: var(--accent);
+  opacity: 0.85;
 }
 
 /* ---------- Footer ---------- */
@@ -147,7 +148,7 @@ video {
   </div>
 </div>
 
-<!-- Video Section -->
+<!-- Video -->
 <section>
   <div class="container">
     <div class="video-wrapper">
@@ -172,16 +173,18 @@ video {
   <div class="container">
 
     <div class="photo"><img src="media/photo1.jpg" alt=""></div>
-    <div class="word">Us.</div>
+    <div class="word">Us</div>
 
     <div class="photo"><img src="media/photo2.jpg" alt=""></div>
-    <div class="word">Laughter.</div>
 
     <div class="photo"><img src="media/photo3.jpg" alt=""></div>
+    <div class="word">Together</div>
+
     <div class="photo"><img src="media/photo4.jpg" alt=""></div>
-    <div class="word">Always.</div>
 
     <div class="photo"><img src="media/photo5.jpg" alt=""></div>
+    <div class="word">Always</div>
+
     <div class="photo"><img src="media/photo6.jpg" alt=""></div>
 
   </div>
