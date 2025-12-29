@@ -26,9 +26,8 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- Viewport Continuation Cue ---------- */
-body::after {
-  content: "";
+/* ---------- Viewport Continuation Fade (SAFE VERSION) ---------- */
+.viewport-fade {
   position: fixed;
   left: 0;
   right: 0;
@@ -51,7 +50,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 100; /* higher than fade */
   cursor: pointer;
   transition: opacity 0.8s ease;
 }
@@ -219,4 +218,35 @@ video {
   </div>
 </section>
 
-<scr
+<!-- Safe viewport fade -->
+<div class="viewport-fade"></div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const video = document.getElementById("film");
+
+overlay.addEventListener("click", () => {
+  overlay.classList.add("hide");
+
+  video.volume = 0;
+  video.play();
+
+  let volume = 0;
+  const fadeDuration = 800;
+  const stepTime = 40;
+  const step = stepTime / fadeDuration;
+
+  const fadeIn = setInterval(() => {
+    volume += step;
+    if (volume >= 1) {
+      video.volume = 1;
+      clearInterval(fadeIn);
+    } else {
+      video.volume = volume;
+    }
+  }, stepTime);
+});
+</script>
+
+</body>
+</html>
