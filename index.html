@@ -73,7 +73,6 @@ section {
 
 /* ---------- Video ---------- */
 .video-wrapper {
-  position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   border-radius: 14px;
@@ -87,43 +86,11 @@ video {
   object-fit: cover;
 }
 
-/* ---------- Video Edge Scroll Cue ---------- */
-.video-scroll-cue {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 70px;
-  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 14px;
-}
-
-.video-scroll-cue span {
-  width: 2px;
-  height: 24px;
-  background: rgba(255,255,255,0.7);
-  animation: cueMove 1.8s ease-in-out infinite;
-}
-
-@keyframes cueMove {
-  0% {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(6px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-}
-
 /* ---------- Quote ---------- */
+.quote-section {
+  margin-top: -12px; /* subtle pull to suggest more content */
+}
+
 .quote {
   text-align: center;
   font-size: 1.1rem;
@@ -192,17 +159,12 @@ video {
       <video id="film" playsinline loop>
         <source src="media/prewedding.mp4" type="video/mp4">
       </video>
-
-      <!-- Subtle scroll cue inside video -->
-      <div class="video-scroll-cue">
-        <span></span>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- Quote -->
-<section>
+<section class="quote-section">
   <div class="container">
     <div class="quote">
       A few moments before forever.
@@ -243,18 +205,10 @@ video {
 <script>
 const overlay = document.getElementById("overlay");
 const video = document.getElementById("film");
-const videoScrollCue = document.querySelector(".video-scroll-cue");
 
 overlay.addEventListener("click", () => {
   overlay.classList.add("hide");
   video.play();
-});
-
-// Hide scroll cue once user scrolls
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40 && videoScrollCue) {
-    videoScrollCue.style.display = "none";
-  }
 });
 </script>
 
