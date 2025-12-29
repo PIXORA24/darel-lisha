@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vijay & Sushmitha</title>
+<title>Darel & Lisha</title>
 
 <style>
 :root {
@@ -22,7 +22,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   overflow-x: hidden;
 }
 
@@ -110,7 +110,7 @@ video {
   object-fit: cover;
 }
 
-/* ---------- Divider Text ---------- */
+/* ---------- Divider Word ---------- */
 .word {
   text-align: center;
   font-size: 1.2rem;
@@ -142,17 +142,17 @@ video {
 <!-- Tap to enter -->
 <div id="overlay">
   <div class="overlay-text">
-    <h1>Vijay & Sushmitha</h1>
+    <h1>Darel & Lisha</h1>
     <p>Tap to watch our pre-wedding story</p>
   </div>
 </div>
 
-<!-- Video -->
+<!-- Video Section -->
 <section>
   <div class="container">
     <div class="video-wrapper">
       <video id="film" playsinline>
-        <source src="prewedding.mp4" type="video/mp4">
+        <source src="media/prewedding.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -171,18 +171,18 @@ video {
 <section>
   <div class="container">
 
-    <div class="photo"><img src="photo1.jpg"></div>
+    <div class="photo"><img src="media/photo1.jpg" alt=""></div>
     <div class="word">Us.</div>
 
-    <div class="photo"><img src="photo2.jpg"></div>
+    <div class="photo"><img src="media/photo2.jpg" alt=""></div>
     <div class="word">Laughter.</div>
 
-    <div class="photo"><img src="photo3.jpg"></div>
-    <div class="photo"><img src="photo4.jpg"></div>
+    <div class="photo"><img src="media/photo3.jpg" alt=""></div>
+    <div class="photo"><img src="media/photo4.jpg" alt=""></div>
     <div class="word">Always.</div>
 
-    <div class="photo"><img src="photo5.jpg"></div>
-    <div class="photo"><img src="photo6.jpg"></div>
+    <div class="photo"><img src="media/photo5.jpg" alt=""></div>
+    <div class="photo"><img src="media/photo6.jpg" alt=""></div>
 
   </div>
 </section>
@@ -190,17 +190,17 @@ video {
 <!-- Footer -->
 <section>
   <div class="container footer">
-    <h2>Vijay & Sushmitha</h2>
-    <p>05 December 2025</p>
+    <h2>Darel & Lisha</h2>
+    <p>Wedding day coming soon</p>
   </div>
 </section>
 
 <script>
-const overlay = document.getElementById('overlay');
-const video = document.getElementById('film');
+const overlay = document.getElementById("overlay");
+const video = document.getElementById("film");
 
-overlay.addEventListener('click', () => {
-  overlay.classList.add('hide');
+overlay.addEventListener("click", () => {
+  overlay.classList.add("hide");
   video.play();
 });
 </script>
